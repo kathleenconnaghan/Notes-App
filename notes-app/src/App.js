@@ -27,6 +27,12 @@ const App = () => {
   },
 ]);
 
+//------------- Search
+
+const [ searchText, setSearchText ] = useState('');
+
+//------------- Add Note
+
 const addNote = (text) => {
   const date = new Date();
   const newNote =  {
@@ -38,6 +44,8 @@ const addNote = (text) => {
   setNotes(newNotes);
 }
 
+//-------------- Delete Note
+
 const deleteNote = (id) => {
   const newNotes = notes.filter((note) => note.id !== id)
   setNotes(newNotes);
@@ -45,9 +53,13 @@ const deleteNote = (id) => {
 
   return(
     <div className = 'container'>
-      <Search/>
+      <Search
+        handleSearchNote= {setSearchText} //hook to update state
+      />
       <NotesList 
-        notes={notes} 
+        notes={notes.filter((note) => 
+            note.text.toLowerCase().includes(searchText)
+        )} 
         handleAddNote={addNote}
         handleDeleteNote= {deleteNote}
       />
