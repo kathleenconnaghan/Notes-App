@@ -27,6 +27,12 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+## Look for my work here:
+
+Website - Projects, Blog, Resume: [https://kathleen.ie/](https://kathleen.ie/)
+
+Medium Articles: [https://kathleen-connaghan.medium.com/](https://kathleen-connaghan.medium.com/)
+
 
 
 
