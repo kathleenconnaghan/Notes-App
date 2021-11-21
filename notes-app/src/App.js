@@ -1,5 +1,5 @@
 import NotesList from './components/NotesList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {nanoid } from 'nanoid';
 import Search from './components/Search';
 import Header from './components/Header';
@@ -34,6 +34,31 @@ const [ searchText, setSearchText ] = useState('');
 
 //------------- DarkMode
 const [ darkMode, setDarkMode ] = useState(false);
+
+
+//------------- UseEffect Hooks
+
+    // retrieve the saved notes from local storage on first load
+
+    useEffect(() => {
+      const savedNotes = JSON.parse(
+        localStorage.getItem('react-notes-app-data')
+        );
+    
+        if(savedNotes) {
+          setNotes(savedNotes);
+        }
+    
+    }, []) // empty array will only run on first load
+
+      // saves notes to local storage
+
+useEffect(() => {
+  localStorage.setItem(
+    'react-notes-app-data', 
+    JSON.stringify(notes))
+}, [notes]);
+
 
 //------------- Add Note
 
